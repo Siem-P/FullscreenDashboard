@@ -1,20 +1,18 @@
 const button = document.querySelector('button')
-const div = document.querySelector('div')
+const main = document.querySelector('main')
 
 const toggleFullscreen = () => {
     if(document.fullscreenElement)
     document.exitFullscreen()
     else 
-    div.requestFullscreen()
+    main.requestFullscreen()
 }
-
-
 
 
 button.addEventListener('click', toggleFullscreen)
 
 const onChange = () => {
-    div.className = document.fullscreenElement ? 'fullscreen' : ''
+    main.className = document.fullscreenElement ? 'fullscreen' : ''
 } 
 
 document.addEventListener('fullscreenchange', onChange)

@@ -1,11 +1,19 @@
 const button = document.querySelector('button')
-const main = document.querySelector('main')
-
-const toggleFullscreen = () => {
-    if(document.fullscreenElement)
-    document.exitFullscreen()
-    else 
-    main.requestFullscreen()
+let toggleFullscreen
+if (document.fullscreenEnabled) {
+    toggleFullscreen = () => {
+        if(document.fullscreenElement)
+        document.exitFullscreen()
+        else 
+        document.documentElement.requestFullscreen();
+    }    
+} else if (document.webkitFullscreenEnabled) {
+    toggleFullscreen = () => {
+        if(document.webkitFullscreenElement)
+        document.webkitExitFullscreen()
+        else 
+        document.documentElement.webkitRequestFullscreen();
+    } 
 }
 
 

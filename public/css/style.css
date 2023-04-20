@@ -60,13 +60,23 @@ button:active {
   --l: 20%;
 }
 
+@supports selector(:-webkit-full-screen) {
+  :-webkit-full-screen html,:-webkit-full-screen body,:-webkit-full-screen main {height: 100%; width: 100%;}
+  :-webkit-full-screen main {overflow-y: auto;}
+  /* :-webkit-full-screen button {display: none;} */
+  :-webkit-fullscreen section:nth-child(1) {background-color: green;}
+}
 
-
+@supports selector(:fullscreen) {
+  :fullscreen html,:fullscreen body,:fullscreen main {height: 100%; width: 100%;}
+  :fullscreen section:nth-child(1) {background-color: hotpink;}
+  :fullscreen main {overflow-y: auto;}
+}
 
 @media (display-mode: fullscreen) {
   html, body, main {height: 100%; width: 100%;}
   main {overflow-y: auto;}
-  button {display: none;}
+  /* button {display: none;} */
   section:nth-child(1) {background-color: green;}
 }
 
